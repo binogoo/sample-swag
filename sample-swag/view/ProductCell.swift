@@ -15,4 +15,10 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var productTitle: UILabel!
     
     
+    func updateViews(product: Product) {
+        self.productImage.image = UIImage(named: product.imageName)
+        self.productPrice.text = product.price
+        self.productTitle.text = product.title
+    }
+    
 }

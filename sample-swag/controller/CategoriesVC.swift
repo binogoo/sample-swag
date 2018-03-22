@@ -19,11 +19,6 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DataService.instance.getCategories().count
     }
@@ -31,13 +26,29 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as? CategoryCell{
             let category = DataService.instance.getCategories()[indexPath.row]
-            cell.updateView(category: category)
+            cell.updateViews(category: category)
             return cell
         }else{
             return CategoryCell()
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let category =  DataService.instance.getCategories()[indexPath.row]
+
+        performSegue(withIdentifier: "ProductsVC", sender: category)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let productsVC = segue.destination as? ProductsVC {
+            let barButtonItem = UIBarButtonItem()
+            barButtonItem.title = ""
+            navigationItem.backBarButtonItem = barButtonItem
+            productsVC.initProducts(category: sender as! Category)
+        }
+    }
     
 
 }

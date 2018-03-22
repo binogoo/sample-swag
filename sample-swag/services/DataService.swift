@@ -50,6 +50,7 @@ class DataService{
     
     
     func getProducts(forCategoryName category:String) -> [Product] {
+        print("category is \(category)")
         switch category {
         case "Hoodies":
             return self.hoodies
@@ -57,6 +58,8 @@ class DataService{
             return self.hats
         case "Shirts":
             return self.shirts
+        case "Digital":
+            return [Product]()
         default:
             return self.shirts
         }
