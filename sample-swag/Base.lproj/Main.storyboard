@@ -134,7 +134,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="168" height="270"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-da-DJT">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hoodie01" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-da-DJT">
                                                     <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="168" id="7hV-fQ-zHn"/>
@@ -222,5 +222,6 @@
     </scenes>
     <resources>
         <image name="digital" width="1024" height="703"/>
+        <image name="hoodie01" width="500" height="500"/>
     </resources>
 </document>
